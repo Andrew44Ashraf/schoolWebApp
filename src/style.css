@@ -43,7 +43,8 @@ body{
 }
 .textbox i{
   width: 30px;
-  float: left;
+  height: 1px;
+ 
   text-align: center;
 }
 .textbox input{
@@ -67,11 +68,10 @@ body{
 }
 .dropDown{
   width: 100%;
-  background: none;
+  background:none;
   border: 2px solid #4caf50;
   
-
-  color: white;
+  color:black;
   padding: 5px;
   font-size: 20px;
   cursor: pointer;
@@ -79,4 +79,84 @@ body{
 }
 .logo {
   height: 40vmin;
+}
+
+.upload_area{
+  height: 200px !important;
+position: relative;
+border: 3px solid green;
+}
+
+#sidebar{
+  position: fixed;
+  width:200px;
+  height: 1000%;
+  background: black;
+  /* left:-200px; */
+  transition: all 500ms linear;
+  
+}
+
+#sidebar.active{
+  left:0px;
+}
+#sidebar ul li{
+  color:white;
+  list-style: none;
+  padding:30px 30px;
+  border-bottom: 1px solid white;
+
+}
+#sidebar .toggle-btn{
+  position: absolute;
+  left:230px;
+  top:20px;
+
+}
+#sidebar .toggle-btn span{
+display:block;
+width:30px;
+height:  5px;
+background:black;
+margin:5px 0px;
+}
+
+.wrap{
+  height:100px;
+  margin-left: 20%;
+  margin-top: 30px;
+
+}
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .6);
+  transition:0.4s;
+  width:300px;
+ text-align: left;
+ font-size:16px;
+ font-family: sans-serif;
+ float: left;
+ margin:10px;
+ 
+ border-radius: 20%;
+}
+.card:hover{
+  box-shadow:0 8px 16px 0 rgba(0, 0, 0, .6) ;
+
+}
+.container{
+padding:2px 16px;  
+}
+
+input[type=checkbox]{
+  margin-left: 80%;
+  width: 20px;
+  height: 20px;
+ 
+ 
+}
+ul{
+  direction:rtl;
+}
+li{
+  margin-right:20px;
 }

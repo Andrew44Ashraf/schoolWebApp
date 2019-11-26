@@ -6,7 +6,7 @@ import logo from './logo.png';
 
 
 
-class Login extends React.Component {
+class SignUp extends React.Component {
     constructor(props){
       super(props);
       this.state = {
@@ -18,15 +18,31 @@ class Login extends React.Component {
         passTwo: '',
         passWordStrength: 'weak', 
         message:'', 
-        validInfo: 'false'
+        validPasswordStrength: false,
+        validPasswordMatch: false,
+        validMail:false,
+        validUserName:false,
+        validId:false,
+        validGrade:false
       }
     }
-    signUp(){
-      console.log(this.state.pass);
-      console.log(this.state.userName);
-      console.log(this.state.mail);
-      console.log(this.state.id);
-      console.log(this.state.passOne);
+    resetStates(){
+      this.setState({
+        userName: '',
+        mail: '',
+        id : '',
+        grade: '',
+        passOne:'',
+        passTwo: '',
+        passWordStrength: 'weak', 
+        message:'', 
+        validPasswordStrength: false,
+        validPasswordMatch: false,
+        validMail:false,
+        validUserName:false,
+        validId:false,
+        validGrade:false
+      })
     }
     passWordStrength(){
       var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
@@ -40,30 +56,85 @@ class Login extends React.Component {
         }else if (false == mediumRegex.test(pwd)){
           this.setState({message:'weak Password'});
         }else if  (false == strongRegex.test(pwd)){
-          this.setState({passWordStrength: "Meduim" , message:'pass is meduim'});
+          this.setState({passWordStrength: "Meduim" , message:'pass is meduim',validPasswordStrength: true});
         }else{
-          this.setState({passWordStrength:'Strong', message:'pass is strong'});
+          this.setState({passWordStrength:'Strong', validPasswordStrength: true });
       }
     }
-    validInfo(){
+    gradeValid(){
+      var gradeSelected = this.state.grade;
+      if (gradeSelected == ""){
+        this.setState({message: "Please Select your Grade"});
+      }else{
+        this.setState({validGrade:true});
+      }
+
+
+    }
+
+    async validInfo(){
       
 
-      this.passWordStrength();
+      await this.passWordStrength();
 
-      this.passWordMatch();
+      await this.passWordMatch();
+
+      await this.gradeValid();
+
+      await this.idValid();
+
+
+      await this.emailIsValid();
+
+      await this.UserNameValid();
+
+      if(this.state.validMail == true && this.state.validPasswordMatch == true && this.state.validPasswordStrength == true && this.state.validUserName == true && this.state.validId == true && this.state.validGrade == true){
+        console.log('connect to back-end');
+        this.resetStates();
+      }else{
+        console.log("no");
+        console.log(this.state.validId);
+        console.log(this.state.validMail);
+        console.log(this.state.validUserName);
+        console.log(this.state.validPasswordStrength);
+        console.log(this.state.validPasswordMatch);
+        console.log(this.state.passWordStrength);
+        console.log(this.state.grade);
+        console.log(this.state.validGrade);
+      }
+
+
+
       
-      this.emailIsValid();
 
+    }
+    UserNameValid(){
       var name = this.state.userName;
       if(name == ''){
         this.setState({message:'Please Enter your Name'});
+      }else{
+        this.setState({validUserName: true});
       }
 
     }
     passWordMatch(){
-      var confirmation =  this.state.passOne == this.state.passTwo;
-      if(!confirmation){
-        this.setState({message:'Passwords do not match'});
+      if (this.state.passOne == '' || this.state.passTwo == ''){
+        return
+      }else{
+        var confirmation =  this.state.passOne == this.state.passTwo;
+        if(!confirmation){
+          this.setState({message:'Passwords do not match'});
+        }else {
+          this.setState({validPasswordMatch:true});
+        }
+      }
+    }
+    idValid(){
+      var id = this.state.id
+      if(id == ''){
+        this.setState({message:'Please Enter your school ID'});
+      }else{
+        this.setState({validId: true});
       }
     }
     emailIsValid () {
@@ -75,7 +146,12 @@ class Login extends React.Component {
       var validation =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       if (!validation){
         this.setState({message:"Please Enter a valid email address"});
+      }else {
+        this.setState({validMail:true});
       }
+    }
+    _handleChange = (event) => {
+      this.setState({ grade: event.target.value });
     }
     
     render() {
@@ -93,7 +169,7 @@ class Login extends React.Component {
                      
                 </div>
                 <div className="textbox">
-                  <i className="fas fa-user"></i>
+                  <i class="fas fa-envelope-square"></i>
                   <input 
                     type="text" 
                     placeholder="mail" 
@@ -102,7 +178,7 @@ class Login extends React.Component {
                      
                 </div>
                 <div className="textbox">
-                  <i className="fas fa-user"></i>
+                  <i class="far fa-id-badge"></i>
                   <input 
                     type="text" 
                     placeholder="id" 
@@ -111,7 +187,7 @@ class Login extends React.Component {
                      
                 </div>
                 <div>
-                  <select className = "dropDown" placeholder = "Choose your grade">
+                  <select className = "dropDown" onChange = {this._handleChange}>
                     <option value = "grade 5" >  Grade 5</option>
                     <option value = "grade 6"  > Grade 6</option> 
                     <option value = "grade 7" > Grade 7</option> 
@@ -120,6 +196,7 @@ class Login extends React.Component {
                     <option value = "grade 10" > Grade 10</option> 
                     <option value = "grade 11" > Grade 11</option> 
                     <option value = "grade 12" > Grade 12</option> 
+                    
                   </select>
                   </div>
 
@@ -169,4 +246,4 @@ class Login extends React.Component {
     }
   }
 
-  export default Login ;
+  export default SignUp ;

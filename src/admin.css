@@ -1,0 +1,23 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+.btn{
+    width: 100%;
+    background: none;
+    border: 2px solid #4caf50;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+
+  .upload_area{
+    height: 200px;
+  position: relative;
+  border: 3px solid green;
+  }
+
+  ::placeholder{
+    color:rgb(255, 255, 255);
+    margin-left: 10 px;
+    font-size: 18px ;
+  }
