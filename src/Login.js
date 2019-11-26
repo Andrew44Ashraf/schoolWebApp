@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 
 class Login extends React.Component{
     constructor(props){
@@ -41,7 +41,16 @@ class Login extends React.Component{
         await this.passValid();
         await this.emailIsavalidLogin();
         if(this.state.validMail == true && this.state.validPassword == true){
-            console.log("connect to back-end");
+            const user = {
+                Email:this.state.email,
+                Password:this.state.pass
+            }
+            
+            var res = await this.SendPostRequest(user);
+            
+        
+            
+            
         }else{
             console.log('no');
             console.log(this.state.validPassword);
@@ -49,6 +58,27 @@ class Login extends React.Component{
             
         }
 
+    }
+    async SendPostRequest(user){
+            const params = {
+                method:'POST',
+                uri:'http://localhost:5000/login',
+                headers:{
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-Type":"application/json"
+                },body:{
+                    user
+                },
+                json:true
+                
+            }
+            try{       
+            var response = await fetch('http://localhost:5000/login',params);
+        }catch(e){
+            console.error(e);
+        }
+       
+       return response
     }
     render(){
         return(
