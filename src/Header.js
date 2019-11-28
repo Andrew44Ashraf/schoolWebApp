@@ -40,9 +40,10 @@ class Header extends Component {
 
         return (
             <nav className="menu">
-                <h1 style={{
+                {/* <h1 style={{
                 backgroundImage: 'url(' + this.props.logo + ')'
-                }} className="menu__logo">Epic Co.</h1>
+                }} className="menu__logo">Epic Co.</h1> */}
+                <img className="menu__logo" src={require('./logo.png')} alt="Avatar"></img>
 
                 <div className="menu__right">
                     <ul className="menu__list">
@@ -50,7 +51,7 @@ class Header extends Component {
                     </ul>
 
                     <button onClick={this.showForm.bind(this)} style={{
-                    backgroundImage: 'url(' + searchIcon + ')'
+                    backgroundImage: 'url(' + searchIcon + ')' 
                     }} className="menu__search-button"></button>
 
                     {searchForm}

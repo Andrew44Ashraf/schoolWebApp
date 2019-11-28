@@ -106,7 +106,7 @@ class ForgetPassword extends React.Component{
              <input 
                   type="button" 
                   className="btn" 
-                  value="Sign up"
+                  value="Reset Password"
                   onClick = {()=>this.sendDataBackend()} 
                 />
  

@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 
+ 
 class Login extends React.Component{
     constructor(props){
         super(props);
@@ -41,42 +41,51 @@ class Login extends React.Component{
         await this.passValid();
         await this.emailIsavalidLogin();
         if(this.state.validMail == true && this.state.validPassword == true){
-            const user = {
-                Email:this.state.email,
-                Password:this.state.pass
+        const user = {
+                "Email":this.state.email,
+                "Password":this.state.pass
             }
-            
+           
             var res = await this.SendPostRequest(user);
-            
-        
-            
-            
+           
+       
+           
+           
         }else{
             console.log('no');
             console.log(this.state.validPassword);
             console.log(this.state.validMail);
-            
+           
         }
-
+ 
     }
     async SendPostRequest(user){
+        console.log(user)
+ 
+ 
             const params = {
                 method:'POST',
-                uri:'http://localhost:5000/login',
                 headers:{
-                    "Access-Control-Allow-Origin": "*",
                     "Content-Type":"application/json"
-                },body:{
-                    user
+                },              
+                body:{
+                   user
                 },
                 json:true
-                
             }
-            try{       
-            var response = await fetch('http://localhost:5000/login',params);
+            try{      
+            var response = await fetch('http://localhost:5000/login',{
+                method: 'post',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({
+                     user
+                })
+            })
         }catch(e){
             console.error(e);
         }
+        const body = await response.json();
+       console.log(body);
        
        return response
     }
@@ -85,32 +94,32 @@ class Login extends React.Component{
             <div className="login-box">
         <div className="textbox">
             <i className="fas fa-user"></i>
-            <input 
-              type="text" 
-              placeholder="email" 
+            <input
+              type="text"
+              placeholder="email"
               onChange={event=> this.setState({email:event.target.value})}
               />
                
           </div>
           <div className="textbox">
                     <i className="fas fa-lock"></i>
-                    <input 
-                      type="password" 
+                    <input
+                      type="password"
                       placeholder="password"
                       onChange = {event=> this.setState({pass: event.target.value})}
                       />
              </div>
-             <input 
-                  type="button" 
-                  className="btn" 
+             <input
+                  type="button"
+                  className="btn"
                   value="Login"
-                  onClick = {()=>this.sendDataBackend()} 
+                  onClick = {()=>this.sendDataBackend()}
                 />
-            <input 
-                  type="button" 
-                  className="btn" 
+            <input
+                  type="button"
+                  className="btn"
                   value="Forget Password"
-                  onClick = {()=>this.sendDataBackend()} 
+                  onClick = {()=>this.sendDataBackend()}
                 />
            
                 <div>

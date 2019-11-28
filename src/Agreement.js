@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 
 class Agreement extends React.Component{
@@ -13,8 +14,8 @@ class Agreement extends React.Component{
 
     render(){
         return(
-            <div>
-                <h3>Hallo {this.props.name}</h3>
+            <div className='agree-body' >
+                <h3  >Hallo {this.props.name}</h3>
                 <h2>
                     Bitte lesen Sie den folgenden Abschnitt sorgfältig durch.
                     يرجى قراءة القسم التالي بعناية
@@ -55,15 +56,39 @@ class Agreement extends React.Component{
         </li>
         
     </ul>         
-          
-        
+        <ol>
+                <p className="space"></p>
+               
+                <li>
+                Für die Klassen 1 bis 4 werden keine Bücherzettel verteilt, da alle Schulbücher neu von der Schule gekauft werden müssen!
+                </li>
+                <li>
+                 Bei den  Bücherzetteln für Klassen 5 bis 12 müssen alle Felder mit „ja“ = Kauf von der Schule  bzw. „nein“ = Selbstbeschaffung  ausgefüllt sein. Leere Felder werden automatisch mit „ ja“ von uns gefüllt.                </li>
+                <li>
+                Die von Ihnen bestellten Bücher müssen beim Bücherverkauf in der Schule abgenommen werden (Es werden keine Bücher zurückgenommen!).
+                </li>
+                <li>
+                 Für die Bücherzettel besteht eine Bringepflicht, d.h. sie sind pünktlich und unterschrieben  abzugeben. Verspätete Einreichungen werden nicht berücksichtigt. Sie müssen sich in diesem Fall die Bücher selbst besorgen.                </li>
+                <li>
+                Bei Verwendung von gebrauchten Büchern ist unbedingt zu beachten, dass das Buch in total sauberen Zustand sein muss, d. h. weder geschriebene Bemerkungen dürfen sichtbar sein, noch dürfen markierte Unterstreichungen vorhanden sein – auch Radierungen  bzw. Löschungen mit Korrektor sind unzulässig.                </li>
+                <li>
+                Alle Arbeitshefte müssen von der Schule gekauft werden.                </li>
+                <li>
+                Jede Schülerin muss alle Schulbücher (auch Atlas, Wörterbücher usw.) besitzen, d.h. auch bei Geschwistern  muss jedes Kind alle Bücher besitzen.                </li>
+                <li>
+                Falls ein Schulbuch später nachgekauft werden muss, weil es den Anforderungen nicht entspricht,  wird ein Aufpreis von 10% des Bücherpreises erhoben.                </li>
+        </ol>  
+        <div className='p2'>
+       {/* <p className='p2'>  </p> */}
+       By cheching the box you accepted and agreed  <input  type="checkbox"   value="I accept and Agree" className= "checkbox1"/>
+       </div>
             <input 
                   type="button" 
-                  className="btn" 
+                  className="agreebtn" 
                   value="Sign up"
                   onClick = {()=>this.sendDataBackend()} 
             />
-            </div>
+        </div>
         );
 
 

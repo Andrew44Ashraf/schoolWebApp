@@ -53,24 +53,134 @@ class Admin extends React.Component {
     render() {
       console.log(this.state.csvfile);
       return (
-        <div className="App">
-          <h2>Import CSV File!</h2>
-          <input
-            className="csv-input"
-            type="file"
-            ref={input => {
-              this.filesInput = input;
-            }}
-            name="file"
-            placeholder={null}
-            onChange={this.handleChange}
-          />
-          <p />
-          <button className='btn' onClick={this.importCSV}> Upload Student sheet!</button>
-          <p>
-              {this.state.message}
-          </p>
+    <div>
+       <div>
+         <h3 className="p1"> Select grade to show report </h3>
+                  <select className = "dropDown" onChange = {this._handleChange}>
+                    <option value = "grade 5" >  Grade 5</option>
+                    <option value = "grade 6"  > Grade 6</option> 
+                    <option value = "grade 7" > Grade 7</option> 
+                    <option value = "grade 8" > Grade 8</option> 
+                    <option value = "grade 9" > Grade 9</option> 
+                    <option value = "grade 10" > Grade 10</option> 
+                    <option value = "grade 11" > Grade 11</option> 
+                    <option value = "grade 12" > Grade 12</option>
+                    <option value = "ALL" > All </option> 
+                    
+                  </select>
+                  </div>
+    <div className="wrap2">
+            <div className="card2">
+              <div className="container2">
+                  {/* <h4>Student Name</h4>
+                  <h4>Student Data</h4>
+                   */}
+                  <div class="row">
+  <div class="column" >
+    <h2>Book Name</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" >
+    <h2>Quantatity</h2>
+    <p>Some text..</p>
+  </div>
+</div>
+              </div> 
+              <button className="print-btn">Print</button>
         </div>
+        
+            </div>
+
+            <div className="App1">
+              <h3  className="i">Set the final date to be edited</h3>
+            <input className="date" type="date" name="bday"/>
+            <input className="submit-btn" type="submit"/>
+</div>
+
+<div className="App2">
+<h3 className="i">Import Student data</h3>
+              <input
+                className="ch-file"
+                type="file"
+                ref={input => {
+                  this.filesInput = input;
+                }}
+                name="file"
+                placeholder={null}
+                onChange={this.handleChange}
+              />
+              <p className="p-center" />
+              <button className='btn2 i' onClick={this.importCSV}> Upload Student sheet</button>
+              <p className="warning">
+                  {this.state.message}
+              </p>
+              </div>
+
+              <div className="App3">
+              <h3 className='i' >Import books</h3>
+              <input
+                className="ch-file"
+                type="file"
+                ref={input => {
+                  this.filesInput = input;
+                }}
+                name="file"
+                placeholder={null}
+                onChange={this.handleChange}
+              />
+              <p className="p-center" />
+              <button className='btn2 i' onClick={this.importCSV}> upload books sheet</button>
+              <p className="warning">
+                  {this.state.message}
+              </p>
+              </div> 
+
+
+
+{/* /////////////////////////////////////////////////////////////////////////////// */}
+            {/* <div className="App">
+              <h3  className="i">Set the final date to be edited</h3>
+            <input className="date" type="date" name="bday"/>
+            <input className="submit-btn" type="submit"/>
+              <h3 className="i">Import Student data</h3>
+              <input
+                className="ch-file"
+                type="file"
+                ref={input => {
+                  this.filesInput = input;
+                }}
+                name="file"
+                placeholder={null}
+                onChange={this.handleChange}
+              />
+              <p className="p-center" />
+              <button className='btn2 i' onClick={this.importCSV}> Upload Student sheet</button>
+              <p className="warning">
+                  {this.state.message}
+              </p>
+              
+              <h3 className='i' >Import books</h3>
+              <input
+                className="ch-file"
+                type="file"
+                ref={input => {
+                  this.filesInput = input;
+                }}
+                name="file"
+                placeholder={null}
+                onChange={this.handleChange}
+              />
+              <p className="p-center" />
+              <button className='btn2 i' onClick={this.importCSV}> upload books sheet</button>
+              <p className="warning">
+                  {this.state.message}
+              </p>
+              </div> */}
+
+
+            </div>
+          
+            
       );
     }
   }

@@ -160,7 +160,7 @@ class SignUp extends React.Component {
         <div className ="box"> 
             <div className="login-box">
               <div className="textbox">
-                  <i className="fas fa-user"></i>
+                  <i className="fas fa-user icon"></i>
                   <input 
                     type="text" 
                     placeholder="student name" 
@@ -220,7 +220,7 @@ class SignUp extends React.Component {
 
                   <input 
                     type="button" 
-                    className="btn" 
+                    className=" signupbtn" 
                     value="Sign up"
                     onClick = {()=>this.validInfo()} 
                   />
@@ -231,7 +231,7 @@ class SignUp extends React.Component {
 
                 <input 
                   type="button" 
-                  className="btn" 
+                  className=" signupbtn" 
                   value="Login"
                   onClick = {()=>this.validInfo()} 
                 />

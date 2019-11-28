@@ -10,6 +10,7 @@ import Admin from './Admin';
 import Books from './Books';
 import Argeement from './Agreement';
 import axios from 'axios';
+import Agreement from './Agreement';
 
 
 class App extends React.Component {
@@ -22,14 +23,16 @@ class App extends React.Component {
     ];
 
     return (
-     
+     <div>
+       <Header links={links} logo={logo} />
       <div className="container center">
 
-        <Header links={links} logo={logo} />
-        <div className= 'Login-box'>
+        
+        {/* <div className= 'Login-box'> */}
         <Login/>     
+
         </div>
-      </div>
+       </div>
      
     );
   }

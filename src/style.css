@@ -7,28 +7,36 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background:rgb(241, 213, 160);
+  background:white;
   background-size: cover;
+  background-image: url("bg2.jpg");
 }
 ::placeholder{
-  color:rgb(255, 255, 255);
+  color:grey;
   margin-left: 10 px;
   font-size: 18px ;
 }
+
 .login-box{
-  width: 280px;
+  width: 400px;
+  height: 200;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   color: #0c410e;
-  border: green;
+  border:solid black;
+  
+  padding-left: 20px;
+  padding-right: 20px;
+  
 
 }
+
 .login-box h1{
   float: left;
   font-size: 40px;
-  border-bottom: 6px solid #4caf50;
+  border-bottom: 6px solid #8a2f3b;
   margin-bottom: 50px;
   padding: 13px 0;
 }
@@ -39,7 +47,7 @@ body{
   padding: 8px 0;
   margin: 8px 0;
   margin-left: 2 px;
-  border-bottom: 3px solid #4caf50;
+  border-bottom: 3px solid #8a2f3b;
 }
 .textbox i{
   width: 30px;
@@ -51,27 +59,45 @@ body{
   border: none;
   outline: none;
   background: none;
-  color:white;
+  color:grey;
   font-size: 22px;
   width: 80%;
   margin: 0 13px;
 }
-.btn{
-  width: 100%;
+
+  .btn {
+    width: 49%;
+    background: none;
+    border: 2px solid #8a2f3b;
+    color: black;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px 82px;
+}
+.btn:hover{
+  box-shadow:0 8px 16px 0 rgba(63, 27, 27, 0.6) ;}
+.signupbtn{
+  margin-left: 21%;
   background: none;
-  border: 2px solid #4caf50;
-  color: white;
+  border: 2px solid #8a2f3b;
+  color: black;
   padding: 5px;
   font-size: 20px;
   cursor: pointer;
-  margin: 10px 0;
+  /* margin: 10px 0; */
+  width: 52%;
+  margin-bottom:10px;
 }
+
+.signupbtn:hover{
+  box-shadow:0 8px 16px 0 rgba(63, 27, 27, 0.6) ;}
 .dropDown{
   width: 100%;
   background:none;
-  border: 2px solid #4caf50;
+  border: 2px solid #8a2f3b;
   
-  color:black;
+  color:grey;
   padding: 5px;
   font-size: 20px;
   cursor: pointer;
@@ -84,17 +110,267 @@ body{
 .upload_area{
   height: 200px !important;
 position: relative;
-border: 3px solid green;
+border: 3px solid #8a2f3b;
 }
 
+
+
+
+input[type="checkbox"].checkbox1:checked  {
+  border-color: black;
+background-color:black;
+}
+.App1 {
+  text-align: left;
+    margin-inline-start: 35%;
+    margin-left: -169%;
+    margin-top: 175%;
+    margin-right: -32%;
+    /* border: 2px solid; */
+    width: 117%;
+}
+.App2 {
+  text-align: left;
+  margin-inline-start: 35%;
+  margin-left: 17%;
+  margin-top: -32%;
+  margin-right: -32%;
+  /* border: 2px solid; */
+  width: 117%; 
+   
+}
+.App3 {
+  text-align: left;
+  margin-inline-start: 35%;
+  margin-left: 189%;
+  margin-top: -44%;
+  margin-right: -32%;
+  /* border: 2px solid; */
+  width: 117%;
+} 
+   
+
+
+
+  /* .i h2{
+  
+      display: block;
+      font-size: 1.5em; */
+      /* margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px; */
+      /* margin-inline-end: 100px;
+      font-weight: bold;
+      margin-left: 20%;
+
+  } */
+
+
+
+ 
+
+
+input[type=checkbox] {
+  margin-left: 25%;
+  width: 20px;
+  height: 20px;
+  margin-left: -22% !important;
+
+ margin-top: 3.45%;
+}
+
+
+.inputbox2{
+  margin-left: 25%;
+    width: 20px;
+    height: 20px;
+    margin-top: 3.5%;
+    margin-left: 22%;
+}
+.icon{
+  height: 50px;
+  width: 50px;
+}
+
+
+
+/* Admin Page */
+
+.wrap2{
+  height:100px;
+  margin-left: 47%;
+  margin-end:40%;
+
+}
+.card2{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .6);
+  transition: 0.4s;
+  width: 454%;
+  text-align: left;
+  font-size: 16px;
+  font-family: sans-serif;
+  float: left;
+  margin: 10px;
+  margin-top: 16%;
+  margin-inline-start: -206%;
+  border-radius: 0%;
+  height: 497%;
+  background-color: white;
+}
+
+.card2:hover{
+  box-shadow:0 8px 16px 0 rgba(0, 0, 0, 0.6) ;
+
+}
+.container2{
+  padding: 22px 17px;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.row{
+ margin-inline-end: -38%;
+  margin-inline-start: 8%;
+
+
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+ 
+
+}
+.p1{
+  margin-inline-start: 7%;
+  margin-bottom: -1%;
+  margin-right: 10%;
+}
+.warning{
+  color: red;
+  margin-top: 1%;
+}
+.i{
+  /*margin-left: -236%;*/
+  margin-left: 3%;
+  margin-end:20%;
+  margin-bottom: 2%;
+  /* margin-block-start: -21%; */
+}
+.btn2{
+  width: 54%;
+    background: none;
+    border:  solid #8a2f3b;
+    color: black;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    margin-top: 5%;
+    margin-left: 3%; 
+}
+.btn2:hover{
+  box-shadow:0 8px 16px 0 rgba(63, 27, 27, 0.6) ;
+}
+.print-btn{
+  margin-top: 44%;
+  margin-left: 80%;
+  width: 15%;
+  background: none;
+  border: solid #8a2f3b;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+}
+.print-btn:hover{
+  box-shadow:0 8px 16px 0 rgba(63, 27, 27, 0.6) ;
+}
+   
+.date{
+  border: solid #8a2f3b;
+  margin-right: 2%;
+  font-size: 16px;
+  margin-left: 3%;
+}
+.submit-btn{
+  border: solid;
+  background-color: black;
+  color: white;
+  width: 24%;
+  height: 42%;
+  font-size: 18px;
+
+
+}
+.submit-btn:hover{
+  box-shadow:0 8px 16px 0 rgba(63, 27, 27, 0.6) ;
+}
+.ch-file{
+      margin-left: 3%;
+  
+}
+.p-center{
+  margin-top: -7%;
+}
+
+/* Agreement Page */
+
+.agree-body{
+  margin-top: 15%;
+  color:black;
+  /* margin-right: 40%; */
+  width: 129%;
+    margin-left: -5%;
+     height: 100%;
+}
+
+.p2{
+  margin-bottom: -2%;
+  margin-top: 7%;
+  font-weight: bold;
+  font-size: 18px;
+}
+.agreebtn {
+  width: 16%;
+  background: none;
+  border: solid #8a2f3b;
+  color: black;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px 0;
+  margin-top: 5%;
+  margin-left: 0%;
+}
+.agreebtn:hover{
+  box-shadow:0 8px 16px 0 rgba(63, 27, 27, 0.6) ;
+}
+input[type=checkbox]{
+  margin-left: 80%;
+  width: 20px;
+  height: 20px;
+  margin-left: 4% !important;
+
+}
+.space{
+  margin-top: 5%;
+}
+
+/* Books Page */
+
 #sidebar{
-  position: fixed;
+  position: absolute;
   width:200px;
-  height: 1000%;
-  background: black;
+  height: 120%;
+  background: #380105;
   /* left:-200px; */
   transition: all 500ms linear;
-  
+  margin-left: -29%;
+  margin-block-start: -1.5%;
+  /* margin-inline-start: -15%; */
+  margin-inline-end: 0%;
 }
 
 #sidebar.active{
@@ -105,7 +381,14 @@ border: 3px solid green;
   list-style: none;
   padding:30px 30px;
   border-bottom: 1px solid white;
-
+text-align: left;
+}
+ul{
+  direction:rtl;
+}
+li{
+ margin-right: -31px;
+    margin-bottom: 3%;
 }
 #sidebar .toggle-btn{
   position: absolute;
@@ -117,7 +400,7 @@ border: 3px solid green;
 display:block;
 width:30px;
 height:  5px;
-background:black;
+background:#380105;
 margin:5px 0px;
 }
 
@@ -137,26 +420,37 @@ margin:5px 0px;
  float: left;
  margin:10px;
  
- border-radius: 20%;
+ border-radius: 0%;
 }
 .card:hover{
-  box-shadow:0 8px 16px 0 rgba(0, 0, 0, .6) ;
+  box-shadow:0 8px 16px 0 #380105 ;
 
 }
 .container{
-padding:2px 16px;  
+    width: 809px;
+    margin: 20px auto;
+    padding: 2px 16px; 
 }
 
-input[type=checkbox]{
-  margin-left: 80%;
-  width: 20px;
-  height: 20px;
- 
- 
+.s{
+  margin-left: 17%;
+    /* padding-top: 0%; */
+    /* margin-block-end: 0%; */
+    margin-bottom: -1%;
+    margin-top: 2%;
 }
-ul{
-  direction:rtl;
-}
-li{
-  margin-right:20px;
+.submit-cards{
+  width: 17%;
+    background: none;
+    border: solid #8a2f3b;
+    color: black;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 0;
+    margin-top: 5%;
+    margin-left: 94%;
+    margin-bottom: 45%;
+    margin-block-end: 139%;
+    height: 27%;
 }

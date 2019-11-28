@@ -18,18 +18,18 @@ class SideBar extends React.Component{
         <span></span>
     </div>
     <ul>
-        <li>Name:
-                <p>the actual name</p>
+        <li>
+                <p>Student name</p>
         </li>
         
-        <li>ID:
-                <p>the actual name</p>
+        <li>
+                <p>Student ID</p>
         </li>
-        <li>Grade:
-                <p>the actual name</p>
+        <li>
+                <p>Student Grade</p>
         </li>
-        <li>Class:
-                <p>the actual name</p>
+        <li>
+                <p>Student class</p>
         </li>
         
     </ul>

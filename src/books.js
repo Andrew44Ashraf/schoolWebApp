@@ -13,6 +13,7 @@ class Books extends React.Component{
     render(){
 
         return(
+            <div>    
             <div id="sidebar">
     <div class="toggle-btn" onClick="toggleSideBar()">
             <span></span>
@@ -46,8 +47,8 @@ class Books extends React.Component{
                     <h4>bookname</h4>
                     <h4>bookname</h4>
                     <h4>bookname</h4>
-                    <h4>
-                    <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+                    <h4>Select
+                    <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
                             </h4>
                 </div> 
             
@@ -58,8 +59,8 @@ class Books extends React.Component{
                     <h4>bookname</h4>
                     <h4>bookname</h4>
                     <h4>bookname</h4>
-                    <h4>
-                    <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+                    <h4> Select
+                    <input className="inputbox2" type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
                          </h4>
                 </div> 
          
@@ -71,7 +72,7 @@ class Books extends React.Component{
                         <h4>bookname</h4>
                         <h4>bookname</h4>
                         <h4>
-                        <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+                        <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
                              </h4>
                     </div> 
              
@@ -84,7 +85,7 @@ class Books extends React.Component{
                     <h4>bookname</h4>
                     <h4>
                             
-                            <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+                            <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
                     </h4>
                 </div> 
          
@@ -99,7 +100,7 @@ class Books extends React.Component{
                         <h4>bookname</h4>
                         <h4>
                             
-                                <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+                                <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
                         </h4>
                     </div> 
              
@@ -113,12 +114,12 @@ class Books extends React.Component{
                             <h4>bookname</h4>
                             <h4>
                                 
-                                    <input class="ch" type="checkbox" id="fruit1" name="fruit-1" value="Apple">
+                                    <input class="ch" type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
                             </h4>
                         </div> 
                  
                      </div>
-
+                     </div>
                  
     </div>
         );
