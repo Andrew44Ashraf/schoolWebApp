@@ -12,6 +12,58 @@ class Agreement extends React.Component{
     }
 
 
+
+
+
+    
+ 
+    async sendDataBackend(){
+        
+        
+                const user={
+                        "Email":"karim@gmasm.com",
+                        "Password":"test123456",
+                        "StudentID":"1232123"
+
+         
+                }
+            var res = await this.SendPostRequest(user);
+           
+       
+           
+      
+ 
+    }
+    async SendPostRequest(user){
+      
+ 
+            const params = {
+                method:'POST',
+                headers:{
+                    "Content-Type":"application/json"
+                },              
+                body:{
+                   user
+                },
+                json:true
+            }
+            try{      
+            var response = await fetch('http://localhost:5000/mailregisteration',{
+                method: 'post',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({
+                     user
+                })
+            })
+        }catch(e){
+            console.error(e);
+        }
+        const body = await response.json();
+       console.log(body);
+       
+       return response
+    }
+
     render(){
         return(
             <div className='agree-body' >
