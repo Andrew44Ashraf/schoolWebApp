@@ -1,12 +1,14 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link} from "react-router-dom";
 import SignUp from "./SignUp";
 import Validation from "./Validation";
 import Login from "./Login";
 import Books from "./Books"
 import Admin from "./Admin"
 import ForgetPassword from "./forgetPassword"
-export default () =>
+const Routes =  (props) => {
+
+  return (
   <Switch>
     <Route path="/" exact component={SignUp} />
     <Route path="/Validate" exact component={Validation} />
@@ -16,4 +18,7 @@ export default () =>
     <Route path="/ForgetPassword" exact component={ForgetPassword} />
 
 
-  </Switch>;
+  </Switch>
+  )
+}
+  export default Routes;

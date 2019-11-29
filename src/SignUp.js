@@ -1,8 +1,10 @@
 import React from 'react';
 import './style.css';
 import { throws } from 'assert';
+import { Router, Route, Switch,Redirect } from "react-router";
+import Link from from "react-router-dom";
 import logo from './logo.png';
-
+import Login from './Login';
 
 
 
@@ -153,6 +155,10 @@ class SignUp extends React.Component {
     _handleChange = (event) => {
       this.setState({ grade: event.target.value });
     }
+    RedirectLogin(){
+      return 
+      
+    }
     
     render() {
       return (
@@ -233,9 +239,10 @@ class SignUp extends React.Component {
                   type="button" 
                   className=" signupbtn" 
                   value="Login"
-                  onClick = {()=>this.validInfo()} 
+                  onClick = {()=>this.RedirectLogin()} 
                 />
-      
+                 <Link to='/path' > some stuff </Link>`
+
                 </div>
                  </div>
                           
