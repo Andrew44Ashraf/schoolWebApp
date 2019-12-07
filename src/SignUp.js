@@ -2,7 +2,6 @@ import React from 'react';
 import './style.css';
 import { throws } from 'assert';
 import { Router, Route, Switch,Redirect } from "react-router";
-import Link from from "react-router-dom";
 import logo from './logo.png';
 import Login from './Login';
 
@@ -194,6 +193,7 @@ class SignUp extends React.Component {
                 </div>
                 <div>
                   <select className = "dropDown" onChange = {this._handleChange}>
+                    <option value = "grade 5" >  PLEASE CHOOSHE YOUR Grade</option>
                     <option value = "grade 5" >  Grade 5</option>
                     <option value = "grade 6"  > Grade 6</option> 
                     <option value = "grade 7" > Grade 7</option> 
@@ -241,7 +241,7 @@ class SignUp extends React.Component {
                   value="Login"
                   onClick = {()=>this.RedirectLogin()} 
                 />
-                 <Link to='/path' > some stuff </Link>`
+                 
 
                 </div>
                  </div>
