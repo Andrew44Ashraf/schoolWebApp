@@ -314,7 +314,61 @@ input[type=checkbox] {
 .p-center{
   margin-top: -7%;
 }
+#sidebar2{
+  position: absolute;
+  width:200px;
+  height: 120%;
+  background: #380105;
+  /* left:-200px; */
+  transition: all 500ms linear;
+  margin-left: -43%;
+  margin-block-start: -1.2%;
+  /* margin-inline-start: -15%; */
+  margin-inline-end: 0%;
+}
+#sidebar2.active{
+  left:0px;
+}
+#sidebar2 ul li{
+  color:white;
+  list-style: none;
+  padding:30px 30px;
+  border-bottom: 1px solid white;
+text-align: left;
+}
+ul{
+  direction:rtl;
+}
+li{
+ margin-right: -31px;
+    margin-bottom: 3%;
+}
+#sidebar2 .toggle-btn{
+  position: absolute;
+  left:230px;
+  top:20px;
 
+}
+#sidebar2 .toggle-btn span{
+display:block;
+width:30px;
+height:  5px;
+background:#380105;
+margin:5px 0px;
+}
+.tog-btn{
+  width: 73%;
+  background:white;
+  border:  solid #8a2f3b;
+  color: black;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+.tog-btn:hover{
+  box-shadow:0 8px 16px 0 rgba(129, 89, 89, 0.6) ;
+}
 /* Agreement Page */
 
 .agree-body{
@@ -368,7 +422,7 @@ input[type=checkbox]{
   /* left:-200px; */
   transition: all 500ms linear;
   margin-left: -29%;
-  margin-block-start: -1.5%;
+  margin-block-start: -1.2%;
   /* margin-inline-start: -15%; */
   margin-inline-end: 0%;
 }
@@ -454,3 +508,83 @@ margin:5px 0px;
     margin-block-end: 139%;
     height: 27%;
 }
+/* BooksInfo page */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: #8a2f3b;
+  padding: 3px;
+  width: 1231px;
+  height: 622px;
+  margin-bottom: 20%;
+}
+.grid-item {
+  background-color: white;
+  border: 1px solid #8a2f3b;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.dropDown2{
+  width: 126%;
+  background:none;
+  border: 2px solid #8a2f3b;
+  color:grey;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 12px 461px
+}
+.p2{
+  margin-inline-start: 214%;
+    margin-bottom: 0%;
+    margin-right: 10%;
+    width: 96%;
+}
+.grid-item1{
+  background-color: white;
+  border: 1px solid #8a2f3b;
+  padding: 0px !important;
+  font-size: 30px;
+  text-align: center;
+}
+#Remarks{
+  width:254%;
+  padding: 12px 20px;
+  margin: 2px 321px;
+  box-sizing: border-box;
+  border: 2px solid #8a2f3b ;
+}
+.Remarks-par{
+
+    margin-inline-start: 26%;
+  
+    margin-block-start: 44%;
+    padding-top: 248px;
+    margin-right: 195%;
+    margin-left: 138%;
+    font-size: 127%;
+}
+.info{
+  margin-inline-end: 57%;
+    margin-inline-start: -75%;
+    width: 30%;
+}
+
+    .Remarks-btn{
+      width: 54%;
+      background: none;
+      border:  solid #8a2f3b;
+      color: black;
+      padding: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 338%;
+      
+    }
+    .Remark-par{
+      margin-left: 139%;
+    width: 169%;
+    margin-top: 0%;
+}
+    
