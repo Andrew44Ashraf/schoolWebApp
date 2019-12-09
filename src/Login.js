@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Route, Switch,Redirect } from "react-router";
 
  
 class Login extends React.Component{
@@ -89,6 +90,10 @@ class Login extends React.Component{
        
        return response
     }
+    RedirectForget(){
+  
+    return <Redirect to = '/ForgetPassword' from = '/Login' />
+    }
     render(){
         return(
             <div className="login-box">
@@ -119,7 +124,7 @@ class Login extends React.Component{
                   type="button"
                   className="btn"
                   value="Forget Password"
-                  onClick = {()=>this.sendDataBackend()}
+                  onClick = {()=>this.RedirectForget()}
                 />
            
                 <div>

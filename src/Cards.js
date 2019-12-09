@@ -6,6 +6,9 @@ import Agreement from './Agreement';
 class Cards extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            alreadySelcted:false
+        }
     }
     
 
@@ -73,10 +76,20 @@ class Cards extends React.Component{
                             <h4>bookname</h4>
                             <h4>bookname</h4>
                             <h4>bookname</h4>
-                            <h3 className="s">select
+                            <h3 className="s">Yes
                                 
                                     <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
+                                 
+
+
                             </h3>
+                            <h3 className="s">No
+                                
+                                <input  type="checkbox" id="fruit1" name="fruit-1" value="Apple"/>
+                         
+
+
+                        </h3>
                         </div> 
                 
                     </div>

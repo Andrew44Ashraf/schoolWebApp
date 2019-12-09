@@ -10,8 +10,12 @@ import Admin from './Admin';
 import Books from './Books';
 import Argeement from './Agreement';
 import Agreement from './Agreement';
+
 import BooksInfo from './BooksInfo';
 import Analytics from'./Analytics'
+
+import Routers from './Routes';
+
 
 class App extends React.Component {
   render() {
@@ -26,10 +30,13 @@ class App extends React.Component {
      <div>
        <Header links={links} logo={logo} />
       <div className="container center">
-
+      
         
         {/* <div className= 'Login-box'> */}
+
         <BooksInfo/>     
+     
+
 
         </div>
        </div>
