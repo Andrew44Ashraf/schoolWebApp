@@ -10,7 +10,8 @@ import Admin from './Admin';
 import Books from './Books';
 import Argeement from './Agreement';
 import Agreement from './Agreement';
-
+import BooksInfo from './BooksInfo';
+import Analytics from'./Analytics'
 
 class App extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class App extends React.Component {
 
         
         {/* <div className= 'Login-box'> */}
-        <Argeement/>     
+        <BooksInfo/>     
 
         </div>
        </div>

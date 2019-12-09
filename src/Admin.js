@@ -1,6 +1,8 @@
 import React from 'react';
 import './style.css';
 import Papa from 'papaparse';
+import SideBar from './Sidebar';
+
 
 
 
@@ -54,6 +56,30 @@ class Admin extends React.Component {
       console.log(this.state.csvfile);
       return (
     <div>
+     
+     <div id="sidebar2">
+    <div class="toggle-btn" onclick="toggleSideBar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+        <li>
+               <button className="tog-btn">Analytics</button>
+        </li>
+        
+        <li>
+                <button className="tog-btn">Books Info</button>
+        </li>
+        <li>
+                <button className="tog-btn">Books</button>
+        </li>
+       
+        
+    </ul>
+    
+
+</div>   
        <div>
          <h3 className="p1"> Select grade to show report </h3>
                   <select className = "dropDown" onChange = {this._handleChange}>
