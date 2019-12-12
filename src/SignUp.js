@@ -155,13 +155,12 @@ class SignUp extends React.Component {
       this.setState({ grade: event.target.value });
     }
     RedirectLogin(){
-      return 
-      
+       return <Redirect to= '/login' />
     }
-    
+    // Willkommen 
     render() {
       return (
-       
+        
         <div className ="box"> 
             <div className="login-box">
               <div className="textbox">
