@@ -92,7 +92,8 @@ class Login extends React.Component{
     }
     RedirectForget(){
   
-    return <Redirect to = '/ForgetPassword' from = '/Login' />
+        this.props.history.push("/ForgetPassword");
+    
     }
     render(){
         return(

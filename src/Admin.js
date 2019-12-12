@@ -1,14 +1,14 @@
 import React from 'react';
 import './style.css';
 import Papa from 'papaparse';
-import SideBar from './Sidebar';
+import AdminSideBar from './AdminSidebar';
 
 
 
 
 class Admin extends React.Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         csvfile: undefined,
         fileName:'',
@@ -55,31 +55,8 @@ class Admin extends React.Component {
     render() {
       console.log(this.state.csvfile);
       return (
-    <div>
-     
-     <div id="sidebar2">
-    <div class="toggle-btn" onclick="toggleSideBar()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ul>
-        <li>
-               <button className="tog-btn">Analytics</button>
-        </li>
-        
-        <li>
-                <button className="tog-btn">Books Info</button>
-        </li>
-        <li>
-                <button className="tog-btn">Books</button>
-        </li>
-       
-        
-    </ul>
-    
-
-</div>   
+        <div>
+        <AdminSideBar {...this.props}/>
        <div>
          <h3 className="p1"> Select grade to show report </h3>
                   <select className = "dropDown" onChange = {this._handleChange}>
@@ -161,47 +138,6 @@ class Admin extends React.Component {
               </p>
               </div> 
 
-
-
-{/* /////////////////////////////////////////////////////////////////////////////// */}
-            {/* <div className="App">
-              <h3  className="i">Set the final date to be edited</h3>
-            <input className="date" type="date" name="bday"/>
-            <input className="submit-btn" type="submit"/>
-              <h3 className="i">Import Student data</h3>
-              <input
-                className="ch-file"
-                type="file"
-                ref={input => {
-                  this.filesInput = input;
-                }}
-                name="file"
-                placeholder={null}
-                onChange={this.handleChange}
-              />
-              <p className="p-center" />
-              <button className='btn2 i' onClick={this.importCSV}> Upload Student sheet</button>
-              <p className="warning">
-                  {this.state.message}
-              </p>
-              
-              <h3 className='i' >Import books</h3>
-              <input
-                className="ch-file"
-                type="file"
-                ref={input => {
-                  this.filesInput = input;
-                }}
-                name="file"
-                placeholder={null}
-                onChange={this.handleChange}
-              />
-              <p className="p-center" />
-              <button className='btn2 i' onClick={this.importCSV}> upload books sheet</button>
-              <p className="warning">
-                  {this.state.message}
-              </p>
-              </div> */}
 
 
             </div>

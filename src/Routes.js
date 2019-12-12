@@ -8,6 +8,9 @@ import Admin from "./Admin"
 import ForgetPassword from "./forgetPassword"
 import Analytics from "./Analytics";
 
+import BooksInfo from './BooksInfo';
+
+
 const Routes =  (props) => {
 
   return (
@@ -18,6 +21,9 @@ const Routes =  (props) => {
     <Route path="/Books" exact component={Books} />
     <Route path="/Admin" exact component={Admin} />
     <Route path = "/Admin/Analytics"exact component= {Analytics}/>
+    <Route path = "/Admin/BooksInfo"exact component= {BooksInfo}/>
+
+
     <Route path="/ForgetPassword" exact component={ForgetPassword} />
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import AdminSideBar from './AdminSidebar';
 
 class BooksInfo extends React.Component {
     constructor(props){
@@ -9,9 +10,11 @@ class BooksInfo extends React.Component {
 render() {
     
     return (
-
-        
+    
+       
+      
   <div className="info"> 
+  
        <h3 className="p2"> Select grade to show report </h3>
                   <select className = "dropDown2" onChange = {this._handleChange}>
                     <option value = "grade 5" >  Grade 5</option>
@@ -67,8 +70,8 @@ render() {
    
 <button className="Remarks-btn">Submit</button>
           </div>
-        
           
+
     );
   }
 }

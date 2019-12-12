@@ -24,7 +24,8 @@ class SignUp extends React.Component {
         validMail:false,
         validUserName:false,
         validId:false,
-        validGrade:false
+        validGrade:false,
+        validInfo:false
       }
     }
     resetStates(){
@@ -90,18 +91,10 @@ class SignUp extends React.Component {
       await this.UserNameValid();
 
       if(this.state.validMail == true && this.state.validPasswordMatch == true && this.state.validPasswordStrength == true && this.state.validUserName == true && this.state.validId == true && this.state.validGrade == true){
-        console.log('connect to back-end');
-        this.resetStates();
+        this.setState({validInfo:true})
+        
       }else{
-        console.log("no");
-        console.log(this.state.validId);
-        console.log(this.state.validMail);
-        console.log(this.state.validUserName);
-        console.log(this.state.validPasswordStrength);
-        console.log(this.state.validPasswordMatch);
-        console.log(this.state.passWordStrength);
-        console.log(this.state.grade);
-        console.log(this.state.validGrade);
+        this.setState({validInfo:false})
       }
 
 
@@ -151,11 +144,61 @@ class SignUp extends React.Component {
         this.setState({validMail:true});
       }
     }
+    async sendDataBackend(){
+
+      if (this.state.validInfo == true){
+      const user = {
+              "Email":this.state.mail,
+              "Password":this.state.passOne,
+              "StudentID":this.state.grade
+
+          }
+         
+          var res = await this.SendPostRequest(user);
+         console.log(res)
+     
+         
+         
+      }
+          
+         
+      
+
+  }
+  async SendPostRequest(user){
+      
+ 
+    const params = {
+        method:'POST',
+        headers:{
+            "Content-Type":"application/json"
+        },              
+        body:{
+           user
+        },
+        json:true
+      }
+      try{      
+      var response = await fetch('http://localhost:5000/mailregisteration',{
+          method: 'post',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+              user
+          })
+      })
+  }catch(e){
+      console.error(e);
+  }
+  const body = await response.json();
+  console.log(body);
+
+  return response
+}
     _handleChange = (event) => {
       this.setState({ grade: event.target.value });
     }
     RedirectLogin(){
-       return <Redirect to= '/login' />
+      this.props.history.push("/Login");
     }
     // Willkommen 
     render() {
@@ -227,7 +270,7 @@ class SignUp extends React.Component {
                     type="button" 
                     className=" signupbtn" 
                     value="Sign up"
-                    onClick = {()=>this.validInfo()} 
+                    onClick = {()=>this.sendDataBackend()} 
                   />
                   <p> 
                   {this.state.message} 
