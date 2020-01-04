@@ -16,10 +16,11 @@ class AdminSidebar extends React.Component{
         this.props.history.push("/Admin/Analytics");
     }
     RouteBooks(){
-        this.props.history.push('/Admin');
+        var token = 'asdasdas23324'
+        this.props.history.push('/Admin/'+token);
     }
     RouteBooksInfo(){
-        this.props.history.push('/Admin/booksInfo');
+        this.props.history.push('/Admin/BooksInfo');
     }
     render(){
     return( 
@@ -40,7 +41,7 @@ class AdminSidebar extends React.Component{
                 <button className="tog-btn" onClick = {this.RouteBooksInfo}>Books Info </button>
         </li>
         <li>
-                <button className="tog-btn" onClick = {this.RouteBooks}>Books </button>
+                <button className="tog-btn" onClick = {this.RouteBooks}>Admin </button>
         </li>
        
         

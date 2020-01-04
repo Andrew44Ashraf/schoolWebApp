@@ -7,44 +7,94 @@ class SideBar extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            view:true
+            view:true,
+            studentName:'',
+            Grade: '',
+            studentId:''
         }
-        this.__toggleSideBar = this.__toggleSideBar.bind(this);
+      
     }
-    __toggleSideBar = (event) =>{
-        this.setState({view:!this.state.view
-        });
-        console.log(
-            'sdasd'
-        )
+   
+    async getStudentData(){
+       
+        var ID = this.props.match.params.id;
+        const user = {
+                "ID":ID
+            }
+           
+            var res = await this.SendPostRequest(user);
+         
+       
+           
+           
+        }
+            
+           
+        
+  
+    
+    async SendPostRequest(user) {
+        
+   
+      const params = {
+          method:'POST',
+          headers:{
+              "Content-Type":"application/json"
+          },              
+          body:{
+             user
+          },
+          json:true
+        }
+        try{      
+        var response = await fetch('http://localhost:5000/StudentInfo',{
+            method: 'post',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                user
+            })
+        })
+    }catch(e){
+        console.error(e);
     }
+    const body = await response.json();
+    console.log('Student Info')
+    console.log( body.student.Grade)
+    this.setState({studentName:body.student.Name, Grade:body.student.Grade, studentId:body.student.StudentID})
+    console.log(this.state.studentId)
+    return response;
+  }
+    
+ componentDidMount(){
+           this.getStudentData();  
+        }
+        
+  
 
     render(){
         return(
             <div>
-            <input type="button" className="toggle-btn" onClick={this.__toggleSideBar}/>
-{this.state.view && 
+          
 <div id="sidebar">
    
-        
+<input type="button" className="toggle-btn" onClick={this.__toggleSideBar}/>
+
         
  
     
      <ul>
         
      <li>
-             <p>Student name</p>
+             <p> Name : {this.state.studentName}</p>
      </li>
      
      <li>
-             <p>Student ID</p>
+             <p>ID: {this.state.studentId}</p>
      </li>
      <li>
-             <p>Student Grade</p>
+             <p> Grade: {this.state.Grade}</p>
      </li>
-     <li>
-             <p>Student class</p>
-     </li>
+     
      
  </ul>
 
@@ -52,7 +102,7 @@ class SideBar extends React.Component{
     
 
 </div>
-}
+
 </div>
         );
 

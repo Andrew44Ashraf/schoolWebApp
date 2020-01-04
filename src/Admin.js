@@ -9,14 +9,23 @@ import AdminSideBar from './AdminSidebar';
 class Admin extends React.Component {
     constructor(props) {
       super(props);
+      this.updateData = this.updateData.bind(this);
+      this.importCSV = this.importCSV.bind(this);
+      this.SendStudentInfo = this.SendStudentInfo.bind(this)
+     
       this.state = {
         csvfile: undefined,
         fileName:'',
         message:'',
-        isValidFormat:false
+        isValidFormat:false,
+        grade:'', 
+        studentSheet:[]
       };
-      this.updateData = this.updateData.bind(this);
-      this.importCSV = this.importCSV.bind(this);
+      this.sheet = {
+        'data':''
+      }
+      
+
     }
   
     handleChange = event => {
@@ -26,30 +35,93 @@ class Admin extends React.Component {
       });
     
     };
-  
-    async importCSV() {
-        var csvName = this.state.fileName;
+    async validinfo(){
+      var csvName = this.state.fileName;
         var size = csvName.length;
-        if (csvName[size-1]=='v' && csvName[size-2] == 's' && csvName[size-3]== 'c'){
+        if (csvName[size-1]==='v' && csvName[size-2] === 's' && csvName[size-3]=== 'c'){
             this.setState({message:'',
             isValidFormat:true
         }); 
         }else{
             this.setState({message:'Please upload a CSV file Extension'});
         }
-      if(this.state.isValidFormat == true){  
+    }
+    async importCSV() {
+      await this.validinfo()
+      if(this.state.isValidFormat === true){
+
         const { csvfile } = this.state;
-        await Papa.parse(csvfile, {
+         await Papa.parse(csvfile, {
             complete: this.updateData,
             header: true
         });
-    }
-    }
   
-    updateData(result) {
+    }
+    }
+    async SendStudentInfo(){
+      try {
+        
+      
+         await this.importCSV();
+         console.log(this.sheet)
+          const user={
+                  "data":this.sheet
+          } 
+
+      var res = await this.SendPostRequest(user);
+ 
+    } catch (error) {  
+      console.log(error)
+  }
+
+
+}
+
+async SendPostRequest(user){
+
+ 
+      const params = {
+          method:'POST',
+          headers:{
+              "Content-Type":"application/json"
+          },              
+          body:{
+             "data":user,
+             'grade':this.state.grade
+          },
+          json:true
+      }
+      try{      
+      var response = await fetch('http://localhost:5000/CSVStudents',{
+          method: 'post',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+            "data":user,
+            'grade':this.state.grade
+          })
+      })
+  }catch(e){
+      console.error(e);
+  }
+  const body = await response.json();
+  console.log(body)
+ console.log(body.Response)
+  
+ 
+ return body;
+  
+}
+
+_handleChange = (event) => {
+  this.setState({ grade: event.target.value });
+}
+
+   async updateData(result) {
       var data = result.data;
-      console.log('this data');
-      console.log(data[1]);
+     this.sheet ={
+       'data': data
+     }
+      return data ;
     }
 
     render() {
@@ -113,7 +185,7 @@ class Admin extends React.Component {
                 onChange={this.handleChange}
               />
               <p className="p-center" />
-              <button className='btn2 i' onClick={this.importCSV}> Upload Student sheet</button>
+              <button className='btn2 i' onClick={this.SendStudentInfo}> Upload Student sheet</button>
               <p className="warning">
                   {this.state.message}
               </p>

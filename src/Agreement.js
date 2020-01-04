@@ -2,13 +2,16 @@ import React from 'react';
 import './style.css';
 
 
+
 class Agreement extends React.Component{
     constructor(){
         super();
         this.state = {
             message:'',
-            accepted:false
+            accepted:false,
+            message:""
         }
+        this.toggleState = this.toggleState.bind(this);
     }
 
 
@@ -18,25 +21,24 @@ class Agreement extends React.Component{
     
  
     async sendDataBackend(){
-        
-        
+            const{token} = this.props.match.params;
+            console.log(token)
                 const user={
-                        "Email":"andrew.achraf44@gmail.com",
-                        "Password":"test123456",
-                        "StudentID":"15151621323"
-
-         
+                        "token": token
                 }
+
             var res = await this.SendPostRequest(user);
-           
        
-           
+            
       
  
     }
+    toggleState(){
+        this.setState({accepted:true});
+    }
     async SendPostRequest(user){
       
- 
+        if (this.state.accepted == true){
             const params = {
                 method:'POST',
                 headers:{
@@ -48,7 +50,7 @@ class Agreement extends React.Component{
                 json:true
             }
             try{      
-            var response = await fetch('http://localhost:5000/mailregisteration',{
+            var response = await fetch('http://localhost:5000/Validate',{
                 method: 'post',
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify({
@@ -59,9 +61,17 @@ class Agreement extends React.Component{
             console.error(e);
         }
         const body = await response.json();
-       console.log(body);
+        console.log(body)
+       console.log(body.Response)
+        if(body.Response ==="ok"){
+            console.log("asd")
+            this.props.history.push("/Login");
+        }else {
+            this.setState({message:body.Response});
+        }
        
-       return response
+       return body;
+        }
     }
 
     render(){
@@ -131,8 +141,8 @@ class Agreement extends React.Component{
                 Falls ein Schulbuch später nachgekauft werden muss, weil es den Anforderungen nicht entspricht,  wird ein Aufpreis von 10% des Bücherpreises erhoben.                </li>
         </ol>  
         <div className='p2'>
-       {/* <p className='p2'>  </p> */}
-       By cheching the box you accepted and agreed  <input  type="checkbox"   value="I accept and Agree" className= "checkbox1"/>
+       <p className='p2'>  </p> 
+       By cheching the box you accepted and agreed  <input  type="checkbox"   value="I accept and Agree" className= "checkbox1" onClick = {this.toggleState}/>
        </div>
             <input 
                   type="button" 
@@ -140,6 +150,8 @@ class Agreement extends React.Component{
                   value="Sign up"
                   onClick = {()=>this.sendDataBackend()} 
             />
+            <p>
+            {this.state.message}</p>
         </div>
         );
 

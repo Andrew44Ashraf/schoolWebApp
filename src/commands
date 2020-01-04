@@ -1,0 +1,13 @@
+
+
+books: 
+ curl -X POST http://localhost:5000/MockBooks
+
+
+students: 
+ curl -X POST http://localhost:5000/registrationman
+
+
+mongo : 
+use School 
+db.students.drop()

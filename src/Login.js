@@ -41,7 +41,10 @@ class Login extends React.Component{
     async sendDataBackend(){
         await this.passValid();
         await this.emailIsavalidLogin();
-        if(this.state.validMail == true && this.state.validPassword == true){
+        var token = 'sadsadsad'
+        if(this.state.email === 'admin@admin.com' && this.state.pass === 'NabilFoad'){
+            this.props.history.push('/Admin/'+token)
+        }else if(this.state.validMail === true && this.state.validPassword === true){
         const user = {
                 "Email":this.state.email,
                 "Password":this.state.pass
@@ -53,9 +56,7 @@ class Login extends React.Component{
            
            
         }else{
-            console.log('no');
-            console.log(this.state.validPassword);
-            console.log(this.state.validMail);
+            
            
         }
  
@@ -86,7 +87,11 @@ class Login extends React.Component{
             console.error(e);
         }
         const body = await response.json();
-       console.log(body);
+        const ID = body.data.ID;
+        if(body.Response =="ok"){
+            this.props.history.push("/Books/"+ID);
+        }
+       console.log(body.Response);
        
        return response
     }

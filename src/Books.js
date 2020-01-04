@@ -13,19 +13,28 @@ class Books extends React.Component{
             view:true
         }
     }
-    toggleSidbar(){
-        this.setState({view:!this.state.view
-        });
+    func(){
+       console.log('asdsad')
+        var ID = this.props.match.params.id;
+        
+        console.log(ID)
+        return (<p></p>)
+
     }
+    
 
     render(){
 
         return(
+
         <div>
-            {this.state.view && <SideBar/>}   
-            <Cards/>
+            {() => this.func()}
+        
+           <SideBar {...this.props}/>
+           <Cards {...this.props}/>
+          
         </div>  
-        );
+        );  
     }
 }
 export default Books;
