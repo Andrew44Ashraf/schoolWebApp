@@ -145,12 +145,14 @@ class SignUp extends React.Component {
       }
     }
     async sendDataBackend(){
-
+      await this.validInfo();
       if (this.state.validInfo == true){
+        console.log("asd ya asad elahy tetsha2at")
+
       const user = {
               "Email":this.state.mail,
               "Password":this.state.passOne,
-              "StudentID":this.state.grade
+              "StudentID":this.state.id
 
           }
          
@@ -190,7 +192,7 @@ class SignUp extends React.Component {
       console.error(e);
   }
   const body = await response.json();
-  console.log(body);
+  this.setState({message:body.response})
 
   return response
 }
