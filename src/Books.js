@@ -14,7 +14,6 @@ class Books extends React.Component{
         }
     }
     func(){
-       console.log('asdsad')
         var ID = this.props.match.params.id;
         
         console.log(ID)
