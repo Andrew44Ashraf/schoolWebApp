@@ -44,21 +44,14 @@ class Login extends React.Component{
         var token = 'sadsadsad'
         if(this.state.email === 'admin@admin.com' && this.state.pass === 'NabilFoad'){
             this.props.history.push('/Admin/'+token)
-        }else if(this.state.validMail === true && this.state.validPassword === true){
+        } else if(this.state.validMail === true && this.state.validPassword === true){
         const user = {
                 "Email":this.state.email,
                 "Password":this.state.pass
             }
            
             var res = await this.SendPostRequest(user);
-           
-       
-           
-           
-        }else{
-            
-           
-        }
+      }
  
     }
     async SendPostRequest(user){
