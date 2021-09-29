@@ -77,17 +77,9 @@ class Agreement extends React.Component{
     render(){
         return(
             <div className='agree-body' >
-                <h3  >Hallo {this.props.name}</h3>
-                <h2>
-                    Bitte lesen Sie den folgenden Abschnitt sorgfältig durch.
-                    يرجى قراءة القسم التالي بعناية
-                    
-                </h2>
-              
-                    
-                     <h1>für deutsch bitte runterscrollen</h1> 
-
-                     <ul direction = "rtl">
+                <h3  >Hello {this.props.name}</h3>
+                
+         <ul direction = "rtl">
         <li direction = "rtl" margin-right= "20px">
                 <p> الصفوف من الأول حتى الرابع الإبتدائى الكتب إلزامية لكافة المواد . </p>
         </li>
